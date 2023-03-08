@@ -1,0 +1,2 @@
+module TemplatePatrones2 {
+}
