@@ -1,7 +1,7 @@
 package observer;
 
 public interface Inotify {
-	void subscription(Iuser user,boolean wantvideo);
+	void subscription(Usuario user);
 	void notifyy();
 
 }
