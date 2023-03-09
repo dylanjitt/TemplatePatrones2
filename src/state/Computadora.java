@@ -19,6 +19,7 @@ public class Computadora {
 
 	public void setStatus(IcomputerState status) {
 		this.status = status;
+		useComputer();
 	}
 	
 	public void useComputer() {
@@ -53,6 +54,29 @@ public class Computadora {
 		programsRunning.add(exe);
 		ramConsume+=5;
 		cpuConsume+=5;
+	}
+	
+	public void shutdown() {
+		System.out.println("Closing programs");
+		for (String exe:programsRunning) {
+			System.out.println("< "+exe);
+			ramConsume-=5;
+			cpuConsume-=5;
+		}
+		programsRunning.clear();
+		info();
+	}
+	
+	public void info() {
+		System.out.println("CONSUMO RAM: "+ramConsume+"%");
+		System.out.println("CONSUMO CPU: "+cpuConsume+"%");
+		if (programsRunning.isEmpty()) {
+			System.out.println("No programs running");
+		}else {
+			System.out.println("Programas running:");
+			programsRunning.forEach((s)-> System.out.println("> "+s));
+		}
+		
 	}
 	
 	
